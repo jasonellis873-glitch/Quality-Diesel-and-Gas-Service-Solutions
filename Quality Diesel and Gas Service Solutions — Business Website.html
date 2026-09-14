@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quality Diesel and Gas Service Solutions</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0A1628;
+      --navy-mid:  #112040;
+      --navy-light:#1a2f55;
+      --orange:    #D4500A;
+      --orange-lt: #e8621a;
+      --white:     #ffffff;
+      --gray-lt:   #f4f5f7;
+      --gray-mid:  #d1d5db;
+      --gray-text: #6b7280;
+      --font-head: 'Oswald', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --radius:    8px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.12);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.18);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.28);
+      --transition: 0.28s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--navy);
+      background: var(--white);
+      /* Orange top stripe */
+      border-top: 5px solid var(--orange);
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── Utility ───────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray-text);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .divider {
+      width: 56px;
+      height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 16px 0 32px;
+    }
+
+    /* ─── NAV ───────────────────────────────────────────────────── */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-brand-name {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-brand-tag {
+      font-size: 11px;
+      color: var(--orange);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      background: rgba(212,80,10,0.18);
+    }
+
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      border-radius: 4px !important;
+      padding: 8px 18px !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-lt) !important;
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #home {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+
+    #home:hover .hero-bg { transform: scale(1.0); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(10,22,40,0.88) 0%,
+        rgba(10,22,40,0.72) 50%,
+        rgba(212,80,10,0.22) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px 24px;
+      max-width: 860px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,80,10,0.22);
+      border: 1px solid rgba(212,80,10,0.55);
+      color: #f9a87a;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-title span { color: var(--orange); }
+
+    .hero-tagline {
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      border: 2px solid var(--orange);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(212,80,10,0.45);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,80,10,0.55);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll i { font-size: 18px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── STATS BAR ─────────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--navy-mid);
+      padding: 0;
+    }
+
+    .stats-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      transition: background var(--transition);
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(212,80,10,0.1); }
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* ─── SERVICES ──────────────────────────────────────────────── */
+    #services {
+      padding: 96px 0 80px;
+      background: var(--gray-lt);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .services-header .divider { margin: 16px auto 0; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover .card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .card-img-wrap {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.55) 0%, transparent 55%);
+    }
+
+    .card-body {
+      padding: 22px 22px 26px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(212,80,10,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      color: var(--orange);
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .card-footer-line {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────────────── */
+    #about {
+      padding: 96px 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 16px rgba(212,80,10,0.5);
+    }
+
+    .about-accent-box {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 80px;
+      height: 80px;
+      background: var(--orange);
+      border-radius: 8px;
+      opacity: 0.18;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      color: #4b5563;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .about-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--gray-lt);
+      border-radius: 8px;
+      border-left: 3px solid var(--orange);
+    }
+
+    .about-feat i {
+      color: var(--orange);
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .about-feat-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    /* ─── CONTACT ───────────────────────────────────────────────── */
+    #contact {
+      padding: 96px 0;
+      background: var(--navy);
+      text-align: center;
+    }
+
+    #contact .section-title { color: var(--white); }
+    #contact .section-label { color: var(--orange); }
+
+    .contact-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+
+    .contact-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,80,10,0.18);
+      border: 1px solid rgba(212,80,10,0.4);
+      color: #f9a87a;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin-bottom: 52px;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 32px 36px;
+      min-width: 240px;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .contact-card:hover {
+      background: rgba(212,80,10,0.12);
+      border-color: rgba(212,80,10,0.45);
+      transform: translateY(-4px);
+    }
+
+    .contact-card-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 20px;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(212,80,10,0.45);
+    }
+
+    .contact-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 8px;
+    }
+
+    .contact-card-value {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-card-value a {
+      color: var(--white);
+      transition: color var(--transition);
+    }
+
+    .contact-card-value a:hover { color: var(--orange); }
+
+    .contact-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      border: 2px solid var(--orange);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(212,80,10,0.4);
+    }
+
+    .btn-phone:hover {
+      background: var(--orange-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,80,10,0.55);
+    }
+
+    .btn-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 14px 34px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .btn-email:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: #060e1a;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 3px solid var(--orange);
+    }
+
+    .footer-name {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .footer-phones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .footer-phones a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+
+    .footer-phones a:hover { color: var(--orange-lt); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── MOBILE NAV ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--navy-mid);
+        flex-direction: column;
+        padding: 16px 0;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 14px 28px;
+        border-radius: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .nav-cta { margin: 8px 28px 4px; border-radius: 4px !important; }
+
+      #navbar { position: sticky; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .about-grid    { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap img { height: 300px; }
+      .about-features { grid-template-columns: 1fr; }
+      .stats-inner { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid    { gap: 40px; }
+    }
+
+    /* ─── Scroll reveal animation ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-brand">
+        <span class="nav-brand-name">Quality Diesel &amp; Gas</span>
+        <span class="nav-brand-tag">Service Solutions</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="tel:8635311299" class="nav-cta"><i class="fa fa-phone"></i> Call Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa fa-wrench"></i>
+        Mobile Service Available
+      </div>
+
+      <h1 class="hero-title">
+        Quality Diesel<br />&amp; Gas<br /><span>Service Solutions</span>
+      </h1>
+
+      <p class="hero-tagline">"Quality Work You Can Depend On"</p>
+
+      <div class="hero-actions">
+        <a href="tel:8635311299" class="btn-primary">
+          <i class="fa fa-phone"></i>
+          Call Us Today: (863) 531-1299
+        </a>
+        <a href="#services" class="btn-outline">
+          <i class="fa fa-wrench"></i>
+          Our Services
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <i class="fa fa-chevron-down"></i>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       STATS BAR
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">9+</div>
+        <div class="stat-label">Service Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Mobile Service</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Contact Lines</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Inquiries Welcome</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-label"><i class="fa fa-wrench"></i> What We Do</div>
+        <h2 class="section-title">Our Service Categories</h2>
+        <p class="section-sub" style="margin:0 auto;">From diesel pumps to mobile fabrication — we bring professional-grade service directly to your location.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- 1 Diesel & Gas Agriculture Pumps -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80"
+                 alt="Diesel and Gas Agriculture Pumps" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-gas-pump"></i></div>
+            <h3 class="card-title">Diesel &amp; Gas Agriculture Pumps</h3>
+            <p class="card-desc">Complete diesel and gas agriculture pump servicing including oil changes, oil filter replacements, air filter replacements, fuel filter replacements, and much more. Keeping your pumps running at peak performance.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 2 Generators -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80"
+                 alt="Generators" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-bolt"></i></div>
+            <h3 class="card-title">Generators</h3>
+            <p class="card-desc">Generator maintenance and service including oil, air, and fuel filter changes to ensure your generator is ready when you need it most.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 3 Side by Sides -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Golf-cart_fairway.jpg"
+                 alt="Side by side golf cart on a fairway" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-truck-monster"></i></div>
+            <h3 class="card-title">Side by Sides (UTVs)</h3>
+            <p class="card-desc">Full side-by-side UTV servicing including oil changes, air filter replacements, and fuel filter replacements to keep your ride performing at its best.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 4 Agricultural Equipment -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80"
+                 alt="Agricultural Equipment" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-tractor"></i></div>
+            <h3 class="card-title">Agricultural Equipment</h3>
+            <p class="card-desc">Comprehensive agricultural equipment service including oil, air, and fuel filter changes, water pump service, gear head maintenance, and much more to keep your farm running.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 5 Semis -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80"
+                 alt="Semi Trucks" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-truck"></i></div>
+            <h3 class="card-title">Semis</h3>
+            <p class="card-desc">Professional semi-truck service including packing bearings, new brake assemblies, general maintenance, and more to keep your fleet on the road.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 6 Forklifts -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80"
+                 alt="Forklifts" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-industry"></i></div>
+            <h3 class="card-title">Forklifts</h3>
+            <p class="card-desc">Forklift maintenance and repair services including packing bearings, new brake assemblies, drive line service, and more to keep your warehouse running efficiently.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 7 Skid Steers -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bobcat_T650_compact_track_loader_%28side_view%29.jpg"
+                 alt="Bobcat skid steer loader" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-hard-hat"></i></div>
+            <h3 class="card-title">Skid Steers</h3>
+            <p class="card-desc">Complete skid steer servicing and maintenance to keep your equipment operating at full capacity on any job site.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 8 Trailers -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242?w=600&q=80"
+                 alt="Trailers" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-trailer"></i></div>
+            <h3 class="card-title">Trailers</h3>
+            <p class="card-desc">Trailer maintenance and repair including packing bearings, new brake assemblies, drive line service, and more to ensure safe hauling every time.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Mobile Service Available</div>
+          </div>
+        </div>
+
+        <!-- 9 Hauling (Small Equipment) -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="hauling-trailer.jpg"
+                 alt="Hauling small equipment" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-truck-moving"></i></div>
+            <h3 class="card-title">Hauling (Small Equipment)</h3>
+            <p class="card-desc">Dependable hauling for small equipment, sod, plants, materials, and other jobsite needs. We also offer long-distance hauling to get your items where they need to go safely and efficiently.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Reliable Transport</div>
+          </div>
+        </div>
+
+        <!-- 10 Mobile Fabrication -->
+        <div class="service-card reveal">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80"
+                 alt="Mobile Fabrication" crossorigin="anonymous" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i class="fa fa-fire"></i></div>
+            <h3 class="card-title">Mobile Fabrication</h3>
+            <p class="card-desc">Mobile fabrication services for small jobs and custom work. Not sure if we can help? Just inquire — we love a challenge! Contact us for more information.</p>
+            <div class="card-footer-line"><i class="fa fa-check-circle"></i> Just Inquire — We Love a Challenge!</div>
+          </div>
+        </div>
+
+      </div><!-- /services-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-wrap reveal">
+          <div class="about-accent-box"></div>
+          <img src="C:\Users\jason\Downloads\jason.jpg"
+               alt="Owner Jason Ellis portrait" loading="lazy" />
+          <div class="about-img-badge"><i class="fa fa-wrench" style="margin-right:8px;"></i>Owner: Jason Ellis</div>
+        </div>
+
+        <div class="about-text reveal">
+          <div class="section-label"><i class="fa fa-user-hard-hat"></i> About Us</div>
+          <h2 class="section-title">Dedicated to Quality<br />Diesel &amp; Gas Service</h2>
+          <div class="divider"></div>
+
+          <p>Quality Diesel and Gas Service Solutions is owned and operated by Jason Ellis, a dedicated professional committed to delivering top-quality diesel and gas equipment service.</p>
+
+          <p>Whether it's a routine oil change or a complex repair, we bring the expertise and equipment to you. Our mobile service means we come to your location — minimizing downtime and keeping your equipment in the field where it belongs.</p>
+
+          <p style="font-style:italic; color: var(--orange); font-weight:600;">"Quality work you can depend on."</p>
+
+          <div class="about-features">
+            <div class="about-feat">
+              <i class="fa fa-truck"></i>
+              <span class="about-feat-text">Mobile Service — We Come to You</span>
+            </div>
+            <div class="about-feat">
+              <i class="fa fa-tools"></i>
+              <span class="about-feat-text">Expert Diesel &amp; Gas Technicians</span>
+            </div>
+            <div class="about-feat">
+              <i class="fa fa-shield-alt"></i>
+              <span class="about-feat-text">Quality Work, Every Time</span>
+            </div>
+            <div class="about-feat">
+              <i class="fa fa-clock"></i>
+              <span class="about-feat-text">Minimize Your Downtime</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label" style="justify-content:center;"><i class="fa fa-envelope"></i> Reach Out</div>
+      <h2 class="section-title reveal">Get In Touch</h2>
+      <p class="contact-sub reveal">We come to you — mobile service available!</p>
+      <div class="contact-note reveal">
+        <i class="fa fa-info-circle"></i>
+        For mobile fabrication and small jobs, just inquire!
+      </div>
+
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fa fa-phone"></i></div>
+          <div class="contact-card-label">Primary Phone</div>
+          <div class="contact-card-value"><a href="tel:8635311299">(863) 531-1299</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fa fa-mobile-alt"></i></div>
+          <div class="contact-card-label">Secondary Phone</div>
+          <div class="contact-card-value"><a href="tel:8638406151">(863) 840-6151</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fa fa-envelope"></i></div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value" style="font-size:15px;"><a href="mailto:qdgserviceSolutions873@gmail.com">qdgserviceSolutions873@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-btn-row reveal">
+        <a href="tel:8635311299" class="btn-phone">
+          <i class="fa fa-phone"></i> (863) 531-1299
+        </a>
+        <a href="tel:8638406151" class="btn-phone" style="background:var(--navy-light); border-color:var(--navy-light); box-shadow:none;">
+          <i class="fa fa-mobile-alt"></i> (863) 840-6151
+        </a>
+        <a href="mailto:qdgserviceSolutions873@gmail.com" class="btn-email">
+          <i class="fa fa-envelope"></i> Send Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-name">Quality Diesel and Gas Service Solutions</div>
+    <div class="footer-phones">
+      <a href="tel:8635311299"><i class="fa fa-phone"></i> (863) 531-1299</a>
+      <a href="tel:8638406151"><i class="fa fa-mobile-alt"></i> (863) 840-6151</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 Quality Diesel and Gas Service Solutions &nbsp;|&nbsp; Owner: Jason Ellis &nbsp;|&nbsp; All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    /* ── Mobile nav toggle ── */
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+
+    /* Close nav on link click (mobile) */
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+
+    /* ── Smooth scroll (fallback for older browsers) ── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          /* Stagger cards in the grid */
+          const delay = entry.target.closest('.services-grid')
+            ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 80
+            : 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Navbar shrink on scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.5)';
+      } else {
+        navbar.style.boxShadow = '0 2px 16px rgba(0,0,0,0.35)';
+      }
+    });
+  </script>
+
+</body>
+</html>
